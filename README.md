@@ -1,7 +1,8 @@
-# TCOAAL_Translation_Update_Utilities
+# Purpose
 Utilities things to check and merge after update The Coffin of Andy and Leyley translation file
 
-## compare_dialogue_ID
+
+# compare_dialogue_ID
 Compare and find lost translation lines caused by dev's translator tool Update function
 
 - Example:
@@ -25,8 +26,30 @@ Compare and find lost translation lines caused by dev's translator tool Update f
   },
   ...
   ```
+## Usage
 
-## placeholder_new_text
+- Python:
+```powershell
+python dialogue_ID_difference.py [-h] [-o OUTPUT_FILE] [-in] [-v] old_csv new_csv
+```
+
+- Executable:
+```powershell
+dialogue_ID_difference.exe [-h] [-o OUTPUT_FILE] [-in] [-v] old_csv new_csv
+```
+
+- Params:
+
+Shorthand | Full | Description
+--- | --- | --- 
+-h | --help | Show help
+-o OUTPUT_FILE | --output-file OUTPUT_FILE | Output JSON file name [Default: 'differences.json']<br> (Optional) 
+-in | --include-new-only | Include IDs with 0 count in OLD and >=1 in NEW [Default: Exclude]<br> (Optional)
+-v | --value-records | Output actual record (row) values instead of ID counts [Default: ID counts]<br> (Optional)
+❌ | old_csv | Path to the old CSV file<br> (Required)
+❌ | new_csv | Path to the new CSV file<br> (Required)
+
+# placeholder_new_text
 Find newly added texts and replace with placeholder text\
 (Some texts like name can be consider as duplicated and replace with placeholder)
 
@@ -62,3 +85,24 @@ Find newly added texts and replace with placeholder text\
   5w14yHKd,Boss,xxxxx,
   sGxYg2dt,Dude,Tên gác cửa 2,
   ```
+
+## Usage
+
+- Python:
+```powershell
+python placeholder_new_text.py [-h] [-o OUTPUT_FILE] [-plhd PLACEHOLDER_TEXT] input_file
+```
+
+- Executable:
+```powershell
+placeholder_new_text.exe [-h] [-o OUTPUT_FILE] [-plhd PLACEHOLDER_TEXT] input_file
+```
+
+- Params:
+
+Shorthand | Full | Description
+--- | --- | --- 
+-h | --help | Show help
+-o OUTPUT_FILE | --output_file OUTPUT_FILE | Path to the output CSV file [Defaults: <input_file_basename>.plhd.<extension>]<br> (Optional)
+-plhd PLACEHOLDER_TEXT | --placeholder_text PLACEHOLDER_TEXT | The text to use as a placeholder [Defaults: 'xxxxx']<br> (Optional)
+❌ | input_file | Path to the input CSV file<br> (Required)

@@ -1,5 +1,5 @@
 # Purpose
-Utilities things to check and merge after update The Coffin of Andy and Leyley translation file
+Utilities to check and merge after update The Coffin of Andy and Leyley translation file
 
 
 # compare_dialogue_ID

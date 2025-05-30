@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['dialogue_ID_difference.py'],
+    ['D:\\Ultilities\\#Personal Project\\TCOAAL_Translation_Update_Utilities\\dialogue_ID_difference.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -19,26 +19,20 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
+    a.binaries,
+    a.datas,
     [],
-    exclude_binaries=True,
     name='dialogue_ID_difference',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
     console=True,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-)
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name='dialogue_ID_difference',
 )

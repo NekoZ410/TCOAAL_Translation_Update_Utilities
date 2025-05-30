@@ -43,8 +43,8 @@ def dialogue_ID_difference():
     parser.add_argument(
         "-o",
         "--output-file",
-        default="differences.json",
-        help="Output JSON file name \033[33m[Default: 'differences.json']\033[0m. \033[36m(Optional)\033[0m",
+        default="ID_differences.json",
+        help="Output JSON file name \033[33m[Default: 'ID_differences.json']\033[0m. \033[36m(Optional)\033[0m",
     )
 
     parser.add_argument(

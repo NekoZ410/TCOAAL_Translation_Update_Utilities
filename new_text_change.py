@@ -45,7 +45,7 @@ def new_text_change():
         "-in",
         "--include-new-only",
         action="store_true",
-        help="Include IDs that only appear in the NEW file (0 count in OLD, >=1 in NEW). \033[33m[Default: Exclude]\033[0m. \033[36m(Optional)\033[0m",
+        help="Include IDs that only appear in the NEW file (0 count in OLD, >=1 in NEW) \033[33m[Default: Exclude]\033[0m. \033[36m(Optional)\033[0m",
     )
 
     args = parser.parse_args()

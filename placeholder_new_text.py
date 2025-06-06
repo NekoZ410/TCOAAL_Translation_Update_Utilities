@@ -31,11 +31,18 @@ def placeholder_new_text():
         help="The text to use as a placeholder \033[33m[Defaults: 'xxxxx']\033[0m. \033[36m(Optional)\033[0m",
     )
 
+    parser.add_argument(
+        "-noID",
+        action="store_true",
+        help="Do not append ID to the placeholder text. \033[33m[Defaults: Append ID to placeholder]\033[0m. \033[36m(Optional)\033[0m",
+    )
+
     args = parser.parse_args()
 
     input_file = args.input_file
     output_file = args.output_file
     placeholder_text = args.placeholder_text
+    no_id_append = args.noID
 
     # Validate file path
     if not input_file:
@@ -66,12 +73,24 @@ def placeholder_new_text():
             return
 
         df.iloc[:, 2] = df.apply(
-            lambda row: placeholder_text if row.iloc[1] == row.iloc[2] else row.iloc[2],
+            lambda row: (
+                placeholder_text
+                if no_id_append
+                else f"{placeholder_text}_{row.iloc[0]}"
+            )
+            if row.iloc[1] == row.iloc[2]
+            else row.iloc[2],
             axis=1,
         )
 
         df.iloc[:, 3] = df.apply(
-            lambda row: placeholder_text if row.iloc[2] == row.iloc[3] else row.iloc[3],
+            lambda row: (
+                placeholder_text
+                if no_id_append
+                else f"{placeholder_text}_{row.iloc[0]}"
+            )
+            if row.iloc[2] == row.iloc[3]
+            else row.iloc[3],
             axis=1,
         )
 

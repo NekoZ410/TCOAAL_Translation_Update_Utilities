@@ -126,7 +126,7 @@ def dialogue_ID_difference():
             else:
                 filtered_new_count = new_count
                 if new_count == 0:
-                    filtered_new_count = "(deleted)"
+                    filtered_new_count = "(deleted / renewed)"
 
                 output_data[id_val] = {
                     "OLD FILE": old_count,
